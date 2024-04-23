@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "339270066376",
+    "project_id": "eclipse-1cab0",
+    "storage_bucket": "eclipse-1cab0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:339270066376:android:99f1b802f80ff7f49605fd",
+        "android_client_info": {
+          "package_name": "com.example.eclipse_bw"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfLQxwGCINp3mvTZgogjsSfjSyM7h9j80"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
