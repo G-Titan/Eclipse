@@ -13,7 +13,7 @@ import 'package:eclipse/conf/InfinityStones/space.dart';
 import 'package:eclipse/conf/InfinityStones/time.dart';
 import 'package:eclipse/about.dart';
 import 'package:eclipse/conf/settings.dart';
-//import 'package:citynest/media_page.dart';
+import 'package:eclipse/conf/Features/eclipse.dart';
 //import 'package:citynest/about_page.dart';
 //import 'package:citynest/conf/disndat.dart'; // Assuming this is where login/register logic is
 
@@ -84,15 +84,16 @@ class _PowerPageContentState extends State<PowerPageContent> {
     });
   }
 
-/// WHAT YOU SEE AFTER LOGIN DETERMINED BY SWIPING//
+  /// WHAT YOU SEE AFTER LOGIN DETERMINED BY SWIPING//
   @override
   Widget build(BuildContext context) {
     if (_isSignedIn) {
       // User is signed in
       return PageView(
-        children: const [
-          AboutPage(),
-          SettingsPage(),
+        children: [
+          EclipseAi(),
+          const AboutPage(),
+          const SettingsPage(),
         ],
       );
     } else {
