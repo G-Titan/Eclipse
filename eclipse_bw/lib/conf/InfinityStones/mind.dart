@@ -1,6 +1,3 @@
-// ignore: file_names
-// ignore_for_file: library_private_types_in_public_api
-
 import 'package:eclipse/conf/CloudSync.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -13,30 +10,28 @@ class Mind extends StatefulWidget {
 }
 
 class _MindState extends State<Mind> {
-  final _formKey = GlobalKey<FormState>();
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _surnameController = TextEditingController();
-  final TextEditingController _ageController = TextEditingController();
-  final TextEditingController _idNumberController = TextEditingController();
-  final TextEditingController _homeAddressController = TextEditingController();
-  final TextEditingController _phoneNumberController = TextEditingController();
-  final TextEditingController _citizenshipController = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final List<TextEditingController> _controllers = [
+    TextEditingController(), // Name
+    TextEditingController(), // Surname
+    TextEditingController(), // Age
+    TextEditingController(), // ID Number
+    TextEditingController(), // Home Address
+    TextEditingController(), // Phone Number
+    TextEditingController(), // Citizenship
+  ];
+  final List<String> _labels = [
+    'Name',
+    'Surname',
+    'Age',
+    'ID Number',
+    'Home Address',
+    'Phone Number',
+    'Citizenship',
+  ];
+  int _currentIndex = 0;
   bool _isMale = false;
   DateTime? _selectedDate;
-
-  Future<void> _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: _selectedDate ?? DateTime.now(),
-      firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
-    );
-    if (picked != null && picked != _selectedDate) {
-      setState(() {
-        _selectedDate = picked;
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,170 +39,157 @@ class _MindState extends State<Mind> {
       title: 'KYC, Terms & Conditions',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        inputDecorationTheme: InputDecorationTheme(
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue),
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue),
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.red),
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.red),
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          fillColor: Colors.white,
+          filled: true,
+          labelStyle: TextStyle(color: Colors.blue),
+        ),
       ),
       home: Scaffold(
+        backgroundColor: Colors.transparent, // Set background color
         appBar: AppBar(
-          title: const Text('Registration Phase 1/3'),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                TextFormField(
-                  controller: _nameController,
-                  decoration: const InputDecoration(labelText: 'Name'),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your name';
-                    }
-                    return null;
-                  },
-                ),
-                TextFormField(
-                  controller: _surnameController,
-                  decoration: const InputDecoration(labelText: 'Surname'),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your surname';
-                    }
-                    return null;
-                  },
-                ),
-                TextFormField(
-                  controller: _ageController,
-                  decoration: const InputDecoration(labelText: 'Age'),
-                  keyboardType: TextInputType.number,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your age';
-                    }
-                    return null;
-                  },
-                ),
-                TextFormField(
-                  controller: _idNumberController,
-                  decoration: const InputDecoration(labelText: 'ID Number'),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your ID number';
-                    }
-                    return null;
-                  },
-                ),
-                TextFormField(
-                  controller: _homeAddressController,
-                  decoration: const InputDecoration(labelText: 'Home Address'),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your home address';
-                    }
-                    return null;
-                  },
-                ),
-                TextFormField(
-                  controller: _phoneNumberController,
-                  decoration: const InputDecoration(labelText: 'Phone Number'),
-                  keyboardType: TextInputType.phone,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your phone number';
-                    }
-                    return null;
-                  },
-                ),
-                TextFormField(
-                  controller: _citizenshipController,
-                  decoration: const InputDecoration(labelText: 'Citizenship'),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your citizenship';
-                    }
-                    return null;
-                  },
-                ),
-                Row(
-                  children: [
-                    const Text('Gender:'),
-                    const SizedBox(width: 10),
-                    DropdownButton<bool>(
-                      value: _isMale,
-                      onChanged: (bool? newValue) {
-                        if (newValue != null) {
-                          setState(() {
-                            _isMale = newValue;
-                          });
-                        }
-                      },
-                      items: const [
-                        DropdownMenuItem(
-                          value: true,
-                          child: Text('Male'),
-                        ),
-                        DropdownMenuItem(
-                          value: false,
-                          child: Text('Female'),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    const Text('Birthday:'),
-                    const SizedBox(width: 10),
-                    ElevatedButton(
-                      onPressed: () => _selectDate(context),
-                      child: Text(
-                        _selectedDate == null
-                            ? 'Select Date'
-                            : '${_selectedDate!.day}/${_selectedDate!.month}/${_selectedDate!.year}',
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      // Extract user data from the form fields
-                      String name = _nameController.text;
-                      String surname = _surnameController.text;
-                      int age = int.parse(_ageController.text);
-                      String idNumber = _idNumberController.text;
-                      String homeAddress = _homeAddressController.text;
-                      String phoneNumber = _phoneNumberController.text;
-                      String citizenship = _citizenshipController.text;
-                      String gender = _isMale ? 'Male' : 'Female';
-                      String birthDate = _selectedDate != null
-                          ? '${_selectedDate!.year}-${_selectedDate!.month}-${_selectedDate!.day}'
-                          : '';
-
-                      // Call CloudSync method to register user details
-                      CloudSync.registerUserDetails(
-                        context,
-                        FirebaseAuth.instance.currentUser!.uid,
-                        name,
-                        surname,
-                        age,
-                        idNumber,
-                        homeAddress,
-                        phoneNumber,
-                        citizenship,
-                        gender,
-                        birthDate,
-                      );
-                    }
-                  },
-                  child: const Text('Submit'),
-                ),
-              ],
-            ),
+          backgroundColor:
+              Colors.black, // Set the background color of the AppBar to black
+          title: Text(
+            'Registration Phase ${_currentIndex + 1}/7',
+            style: TextStyle(color: Colors.white), // Set text color to white
           ),
         ),
+
+        body: Stack(
+          children: [
+            // Add your GIF animation here
+            Image.asset(
+              'lib/conf/assets/animations/powerStone.gif',
+              fit: BoxFit.cover,
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Form(
+                key: _formKey,
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      _buildTextField(
+                        controller: _controllers[_currentIndex],
+                        label: _labels[_currentIndex],
+                      ),
+                      const SizedBox(height: 40),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          if (_currentIndex > 0)
+                            ElevatedButton(
+                              onPressed: _previousField,
+                              child: Text('Previous'),
+                            ),
+                          const SizedBox(width: 20),
+                          ElevatedButton(
+                            onPressed: _nextField,
+                            child: Text(_currentIndex == _controllers.length - 1
+                                ? 'Submit'
+                                : 'Next'),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
+    );
+  }
+
+  Widget _buildTextField({
+    required TextEditingController controller,
+    required String label,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16.0),
+      child: TextFormField(
+        controller: controller,
+        decoration: InputDecoration(
+          labelText: label,
+        ),
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'Please enter your $label';
+          }
+          return null;
+        },
+      ),
+    );
+  }
+
+  void _nextField() {
+    if (_formKey.currentState!.validate()) {
+      if (_currentIndex < _controllers.length - 1) {
+        setState(() {
+          _currentIndex++;
+        });
+      } else {
+        _submitForm();
+      }
+    }
+  }
+
+  void _previousField() {
+    if (_currentIndex > 0) {
+      setState(() {
+        _currentIndex--;
+      });
+    }
+  }
+
+  void _submitForm() {
+    // Extract user data from the form fields
+    String name = _controllers[0].text;
+    String surname = _controllers[1].text;
+    int age = int.parse(_controllers[2].text);
+    String idNumber = _controllers[3].text;
+    String homeAddress = _controllers[4].text;
+    String phoneNumber = _controllers[5].text;
+    String citizenship = _controllers[6].text;
+    String gender = _isMale ? 'Male' : 'Female';
+    String birthDate = _selectedDate != null
+        ? '${_selectedDate!.year}-${_selectedDate!.month}-${_selectedDate!.day}'
+        : '';
+
+    // Call CloudSync method to register user details
+    CloudSync.registerUserDetails(
+      context,
+      FirebaseAuth.instance.currentUser!.uid,
+      name,
+      surname,
+      age,
+      idNumber,
+      homeAddress,
+      phoneNumber,
+      citizenship,
+      gender,
+      birthDate,
     );
   }
 }

@@ -84,7 +84,7 @@ class _PowerPageContentState extends State<PowerPageContent> {
     });
   }
 
-/** WHAT YOU SEE AFTER LOGIN DETERMINED BY SWIPING *///
+/// WHAT YOU SEE AFTER LOGIN DETERMINED BY SWIPING//
   @override
   Widget build(BuildContext context) {
     if (_isSignedIn) {
