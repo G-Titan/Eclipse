@@ -90,10 +90,10 @@ class _PowerPageContentState extends State<PowerPageContent> {
     if (_isSignedIn) {
       // User is signed in
       return PageView(
-        children: [
+        children: const [
           EclipseAi(),
-          const AboutPage(),
-          const SettingsPage(),
+          AboutPage(),
+          SettingsPage(),
         ],
       );
     } else {

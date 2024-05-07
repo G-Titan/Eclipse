@@ -1,4 +1,6 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:eclipse/conf/Features/AiLogic/TTS.dart';
 
 class EclipseAi extends StatelessWidget {
   const EclipseAi({super.key});
@@ -6,16 +8,95 @@ class EclipseAi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Colors.black,
-        alignment: Alignment.center,
-        child: const Text(
-          'Lavender is being built...',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 24,
+      body: Stack(
+        children: [
+          const Center(
+            child: Padding(
+              padding: EdgeInsets.only(top: 50),
+              child: Column(
+                children: [
+                  Text(
+                    'I am Lavender, an artifical intelligent assistant',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                    ),
+                  ),
+                  Text(
+                    'Click the sphere to begin chatting',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
-        ),
+          Center(
+            child: GestureDetector(
+              onTap: () {
+                showModalBottomSheet(
+                  context: context,
+                  builder: (context) => const Heart(),
+                );
+              },
+              child: TweenAnimationBuilder(
+                tween: Tween<double>(begin: 0, end: 2 * pi),
+                duration: const Duration(seconds: 10),
+                builder: (context, value, child) {
+                  return Transform.rotate(
+                    angle: value,
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.cyanAccent,
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: Colors.cyan,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+          Center(
+            child: Transform.translate(
+              offset: Offset.fromDirection(
+                -pi / 2,
+                -100,
+              ),
+              child: Container(
+                width: 2,
+                height: 100,
+                decoration: BoxDecoration(
+                  color: Colors.cyan,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            ),
+          ),
+          Center(
+            child: Transform.translate(
+              offset: Offset.fromDirection(
+                pi / 2,
+                -100,
+              ),
+              child: Container(
+                width: 2,
+                height: 100,
+                decoration: BoxDecoration(
+                  color: Colors.cyan,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
