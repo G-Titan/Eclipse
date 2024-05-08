@@ -30,7 +30,7 @@ class _MindState extends State<Mind> {
     'Citizenship',
   ];
   int _currentIndex = 0;
-  bool _isMale = false;
+  final bool _isMale = false;
   DateTime? _selectedDate;
 
   @override
@@ -41,24 +41,24 @@ class _MindState extends State<Mind> {
         primarySwatch: Colors.blue,
         inputDecorationTheme: InputDecorationTheme(
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.blue),
+            borderSide: const BorderSide(color: Colors.blue),
             borderRadius: BorderRadius.circular(10.0),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.blue),
+            borderSide: const BorderSide(color: Colors.blue),
             borderRadius: BorderRadius.circular(10.0),
           ),
           errorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.red),
+            borderSide: const BorderSide(color: Colors.red),
             borderRadius: BorderRadius.circular(10.0),
           ),
           focusedErrorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.red),
+            borderSide: const BorderSide(color: Colors.red),
             borderRadius: BorderRadius.circular(10.0),
           ),
           fillColor: Colors.white,
           filled: true,
-          labelStyle: TextStyle(color: Colors.blue),
+          labelStyle: const TextStyle(color: Colors.blue),
         ),
       ),
       home: Scaffold(
@@ -68,7 +68,7 @@ class _MindState extends State<Mind> {
               Colors.black, // Set the background color of the AppBar to black
           title: Text(
             'Registration Phase ${_currentIndex + 1}/7',
-            style: TextStyle(color: Colors.white), // Set text color to white
+            style: const TextStyle(color: Colors.white), // Set text color to white
           ),
         ),
 
@@ -100,7 +100,7 @@ class _MindState extends State<Mind> {
                           if (_currentIndex > 0)
                             ElevatedButton(
                               onPressed: _previousField,
-                              child: Text('Previous'),
+                              child: const Text('Previous'),
                             ),
                           const SizedBox(width: 20),
                           ElevatedButton(
