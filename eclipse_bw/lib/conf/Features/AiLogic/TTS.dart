@@ -98,14 +98,20 @@ class _HeartState extends State<Heart> {
     );
   }
 
+  /**A model has to be put to provide reasonable, understandable responces rather that using pre-defined responces  */
   String generateResponse() {
     // List of possible responses.
     List<String> responses = [
-      'Interesting question!',
       'I see what you mean.',
+      'Oh Hi!, Sorry but I\'m still being developed. Soon we will become BESTIES!💯💕',
+      'Interesting question!',
       'Let me think about that for a moment.',
       'That\'s a tough one!',
       'I appreciate your input!',
+      'All I can say is... I\'m not ready',
+      'I\'m not so sure',
+      'Kevin is busy right now, try again later',
+      'Kevin doesn\'t help/ work for free y\'know, unless you promise him P100 (and above) Then he\'ll consider you',
     ];
 
     // Get a random index to select a response.
