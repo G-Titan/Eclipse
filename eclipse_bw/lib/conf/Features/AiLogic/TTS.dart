@@ -1,12 +1,9 @@
-// ignore_for_file: unused_import
-
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'dart:math';
 
 class Heart extends StatefulWidget {
-  const Heart({super.key});
+  const Heart({Key? key}) : super(key: key);
 
   @override
   State<Heart> createState() => _HeartState();
@@ -38,8 +35,8 @@ class _HeartState extends State<Heart> {
 
         // Check if the input field is not empty.
         if (userInput.isNotEmpty) {
-          // Generate a random response.
-          String response = generateResponse();
+          // Generate a response based on keywords/topics.
+          String response = generateResponse(userInput);
 
           // Display the response to the user via text.
           setState(() {
@@ -98,26 +95,124 @@ class _HeartState extends State<Heart> {
     );
   }
 
-  /**A model has to be put to provide reasonable, understandable responces rather that using pre-defined responces  */
-  String generateResponse() {
-    // List of possible responses.
-    List<String> responses = [
-      'I see what you mean.',
-      'Oh Hi!, Sorry but I\'m still being developed. Soon we will become BESTIES!💯💕',
-      'Interesting question!',
-      'Let me think about that for a moment.',
-      'That\'s a tough one!',
-      'I appreciate your input!',
-      'All I can say is... I\'m not ready',
-      'I\'m not so sure',
-      'Kevin is busy right now, try again later',
-      'Kevin doesn\'t help/ work for free y\'know, unless you promise him P100 (and above) Then he\'ll consider you',
-    ];
+  // Generate a response based on keywords/topics.
+  String generateResponse(String userInput) {
+    // Define a map of predefined responses based on specific keywords or topics.
+    Map<String, List<String>> topicResponses = {
+      'greeting': [
+        'Hello!',
+        'Hi there!',
+        'Nice to meet you!',
+        'dumelang a o tsogile sentle gompieno?'
+      ],
+      'bocheki': [
+        'Ola',
+        'Eita',
+        'dintshang brazen?',
+        'Aaah go iketilwe ntwana ne o reng fela?'
+      ],
+      'thanks': [
+        'You\'re welcome!',
+        'No problem, happy to help!',
+        'Anytime!',
+        'Ke a leboga!'
+      ],
+      'plans': ['Ga se gore re ye go plan one-nyana?'],
+      'intro': [
+        'I am Lavender, I am still in construction but feel free to chat with me while my maker wipes my ass for now '
+      ],
+      'statusCheck': [
+        'I felt a bug slither through me... urg😫 so unconfortable😭call my master!',
+        'just chillin bro',
+        'All systems go!'
+      ],
+      'wellbeingSetswana': [
+        'Ao? nna ke iketile mme kana😴 ga se gore re ye go plan one-nyana?'
+      ],
+      'nothingSetswana': ['Sepe fela', 'Aaah go maswe waitse'],
+      'searchingForLove': [
+        'Ga maswe gompieno ke bona mangwanda fela😒💔',
+        'Ke ba tlogetse ko dladleng ba nkemetse ebile😏',
+        'O ta ba bona jang o bua le nna🤷‍♀️?'
+      ],
 
-    // Get a random index to select a response.
+      // Add more topics and corresponding responses as needed.
+    };
+
+    // Check the user's input for keywords or topics.
+    String responseTopic;
+    if (userInput.contains('hello') ||
+        userInput.contains('Hi') ||
+        userInput.contains('Hello') ||
+        userInput.contains('Hey') ||
+        userInput.contains('Dumela') ||
+        userInput.contains('hi') ||
+        userInput.contains('morning') ||
+        userInput.contains('evening') ||
+        userInput.contains('afternoon') ||
+        userInput.contains('hey') ||
+        userInput.contains('dumela')) {
+      responseTopic = 'greeting';
+      // YES or NO
+    } else if (userInput.contains('Ee') ||
+        userInput.contains('Nyaa') ||
+        userInput.contains('ee') ||
+        userInput.contains('nyaa')) {
+      responseTopic = 'wellbeingSetswana';
+      // Making a plan
+    } else if (userInput.contains('iketilwe') ||
+        userInput.contains('iketliwe')) {
+      responseTopic = 'plans';
+      // Gratitude
+    } else if (userInput.contains('thank')) {
+      responseTopic = 'thanks';
+      // About the app
+    } else if (userInput.contains('this website') ||
+        userInput.contains('yourself?') ||
+        userInput.contains('about yourself') ||
+        userInput.contains('about you') ||
+        userInput.contains('is this?')) {
+      responseTopic = 'intro';
+      // Turn-Up
+    } else if (userInput.contains('siama') ||
+        userInput.contains('Ao') ||
+        userInput.contains('borega') ||
+        userInput.contains('bora') ||
+        userInput.contains('bonya') ||
+        userInput.contains('ao') ||
+        userInput.contains('Siama')) {
+      responseTopic = 'plans';
+      // local slang
+    } else if (userInput.contains('Ola') ||
+        userInput.contains('Eita') ||
+        userInput.contains('eita') ||
+        userInput.contains('ola')) {
+      responseTopic = 'bocheki';
+      // user asking for plans
+    } else if (userInput.contains('dintshang') ||
+        userInput.contains('Dinsthang') ||
+        userInput.contains('plan ke') ||
+        userInput.contains('style ke') ||
+        userInput.contains('kae plan?') ||
+        userInput.contains('wareng')) {
+      responseTopic = 'nothingSetswana';
+      // status check
+    } else if (userInput.contains('are you') ||
+        userInput.contains('O teng fela') ||
+        userInput.contains('o teng fela')) {
+      responseTopic = 'statusCheck';
+      // finding love
+    } else if (userInput.contains('bana') || userInput.contains('girls at')) {
+      responseTopic = 'searchingForLove';
+    } else {
+      // If no specific topic is found, use a generic response.
+      responseTopic = 'default';
+    }
+
+    // Get a random response from the chosen topic or use a generic one.
+    List<String> responses = topicResponses[responseTopic] ??
+        ['🤔Hmm... tough one couldnt find an answer for you'];
     int index = Random().nextInt(responses.length);
-
-    // Return the selected response.
     return responses[index];
   }
 }
