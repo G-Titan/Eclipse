@@ -1,9 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:eclipse/conf/func/static/chatbot.dart';
+import 'package:eclipse/conf/func/NeuralNetwork/choices.dart';
 
 class LAVENDER extends StatefulWidget {
-  const LAVENDER({Key? key}) : super(key: key);
+  const LAVENDER({super.key});
 
   @override
   State<LAVENDER> createState() => _HeartState();
@@ -91,39 +92,8 @@ class _HeartState extends State<LAVENDER> {
                       fontSize: 16,
                     ),
                   ),
-                  if (response.contains(
-                      'one nyana')) // Condition for displaying buttons for one response
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            // Add logic for 'Yes' button
-                          },
-                          child: const Text('Yes'),
-                        ),
-                        const SizedBox(width: 16),
-                        ElevatedButton(
-                          onPressed: () {
-                            // Add logic for 'No' button
-                          },
-                          child: const Text('No'),
-                        ),
-                      ],
-                    ),
-                  if (response.contains(
-                      'you with one')) // Condition for displaying buttons for another response
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            // Add logic for button
-                          },
-                          child: const Text('18+ room'),
-                        ),
-                      ],
-                    ),
+                  ChoiceButtons(
+                      response: response), // Display buttons based on response
                 ],
               ),
           ],

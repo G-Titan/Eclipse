@@ -73,8 +73,10 @@ String generateResponse(String userInput) {
     'wtf': [
       'What exactly are you trying to say?',
       'Repeat yourself one more time',
+      'Then go get something to eat!',
       'That\'s crazy',
       'And that sounds normal to you?🤨',
+      'Drink water maybe?',
       'How was your day?',
       'Double check with me later on that',
       'You are just bored, that\'s for sure‼️',
@@ -85,16 +87,28 @@ String generateResponse(String userInput) {
     ],
     // encouragement
     'consolidation': [
-      'For sure',
+      'For sure👍',
       'MUST💪',
-      'AWEH!!',
+      'AWEH!!🚀',
       'LET\'S GO!🤪',
       'Go ta siama go feta foo💪',
-      'For the money or you doing it for free?',
+      'For the money or you doing community service?',
       'You are nice, I like you',
       'Crazy you think that way',
       'I don\'t know, you tell me🤷‍♀️',
       'Who am I to judge?, I am just getting to know you. You are the dictator of your own life💫'
+    ],
+    // Friend management
+    'closeFriends': [
+      'Try calling them yet?',
+      'Wish I could help you but checking my database they haven\'t registered with me yet, it would\'ve been effective that way to connect yall🤷‍♀️😫',
+      'Who exactly are you talking about?',
+      'Don\'t think I remember him/ her',
+      'Dira call back',
+      'Your friends went home, maybe you should do the same',
+      'Make a please call me request',
+      'Are that broke to not even text them?',
+      'Ask someone to help you'
     ],
     // STRONGLY DISAGREE
     'fuckdat': [
@@ -118,8 +132,8 @@ String generateResponse(String userInput) {
     'statusCheck': [
       'I just felt a bug slither through me... urg😫 the internet is very nasty 😭call my master! I need an update NOW❕❕❕❕',
       'just chillin bro',
-      'A lil busy right now checking my code for bugs, wanna help me? you might get paid for it!'
-          'All systems go!'
+      'A lil busy right now checking my code for bugs, wanna help me? you might get paid for it!',
+      'All systems go!'
     ],
     'wellbeingSetswana': [
       'Ao bonya bo bo kana kana. nna ke iketile le nna kana😴 ga se gore re ye go plan one nyana?'
@@ -193,6 +207,7 @@ String generateResponse(String userInput) {
       userInput.contains('I am') ||
       userInput.contains('ke a') ||
       userInput.contains('Yes') ||
+      userInput.contains('yes') ||
       userInput.contains('I do') ||
       userInput.contains('I feel') ||
       userInput.contains('i feel') ||
@@ -200,7 +215,7 @@ String generateResponse(String userInput) {
       userInput.contains('i am')) {
     responseTopic = 'consolidation';
 
-    // YES or NO
+    // YES or NO (setswana)
   } else if (userInput.contains('Ee') ||
       userInput.contains('Nyaa') ||
       userInput.contains('ee') ||
@@ -278,6 +293,10 @@ String generateResponse(String userInput) {
 
     // Gratitude
   } else if (userInput.contains('thank') ||
+      userInput.contains('Sorry') ||
+      userInput.contains('sorry') ||
+      userInput.contains('Excuse me') ||
+      userInput.contains('excuse me') ||
       userInput.contains('tanki') ||
       userInput.contains('funny')) {
     responseTopic = 'thanks';
@@ -323,6 +342,7 @@ String generateResponse(String userInput) {
       userInput.contains('about you') ||
       userInput.contains('you') ||
       userInput.contains('Who are you') ||
+      userInput.contains('Betway') ||
       userInput.contains('Who made you') ||
       userInput.contains('who made you') ||
       userInput.contains('O dirilwe ke mang') ||
@@ -395,9 +415,11 @@ String generateResponse(String userInput) {
       userInput.contains('waren')) {
     responseTopic = 'nothingSetswana';
 
-    // (OPT) Uncomment 2 lines below to add more topics
-    //} else if (userInput.contains('') || userInput.contains('optional')){
-    //responseTopic = '';
+    // My people finder
+  } else if (userInput.contains('bona kae') ||
+      userInput.contains('where are they?') ||
+      userInput.contains('Where are they?')) {
+    responseTopic = 'closeFriends';
 
     // status check
   } else if (userInput.contains('How are you') ||
