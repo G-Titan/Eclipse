@@ -195,6 +195,8 @@ String generateResponse(String userInput) {
       userInput.contains('ke a') ||
       userInput.contains('Yes') ||
       userInput.contains('I do') ||
+      userInput.contains('I feel') ||
+      userInput.contains('i feel') ||
       userInput.contains('i do') ||
       userInput.contains('i am')) {
     responseTopic = 'consolidation';
@@ -293,7 +295,7 @@ String generateResponse(String userInput) {
       userInput.contains('Dithala') ||
       userInput.contains('Nywana') ||
       userInput.contains('nywana')) {
-    responseTopic = 'humbleThem';
+    responseTopic = 'HumbleThem';
 
     // Dealing with my (girls)
   } else if (userInput.contains('Bbe') ||
@@ -373,6 +375,8 @@ String generateResponse(String userInput) {
       userInput.contains('Dinsthang') ||
       userInput.contains('What\'s happening') ||
       userInput.contains('what\'s happening') ||
+      userInput.contains('whats happening') ||
+      userInput.contains('Whats happening') ||
       userInput.contains('Style se') ||
       userInput.contains('style') ||
       userInput.contains('Waren') ||
