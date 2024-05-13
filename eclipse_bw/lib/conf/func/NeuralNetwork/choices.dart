@@ -9,8 +9,7 @@ class ChoiceButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        if (response.contains(
-            'one nyana')) // Condition for displaying buttons for one response
+        if (response.contains('one nyana') || response.contains('you with one'))
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -51,9 +50,48 @@ class ChoiceButtons extends StatelessWidget {
               ),
             ],
           ),
-        //
-        //
-        //// Add more button pairs as needed
+        //// OFFERINGS
+        if (response.contains('just a suggestion') ||
+            response.contains('I thought I was'))
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  // Add logic for button
+                },
+                child: const Text('Offer something'),
+              ),
+              const SizedBox(width: 16),
+              ElevatedButton(
+                onPressed: () {
+                  // Add logic for another button
+                },
+                child: const Text('Next time'),
+              ),
+            ],
+          ),
+        if (response.contains(
+            'tour of me')) // Condition for displaying buttons for another response
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  // Add logic for button
+                },
+                child: const Text('Yes'),
+              ),
+              const SizedBox(width: 16),
+              ElevatedButton(
+                onPressed: () {
+                  // Add logic for another button
+                },
+                child: const Text('No'),
+              ),
+            ],
+          ),
+        ////// Add more button pairs as needed
         // if (response.contains('Another condition')) // Condition for displaying buttons for another response
         //   Row(
         //     mainAxisAlignment: MainAxisAlignment.center,

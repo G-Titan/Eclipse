@@ -14,7 +14,7 @@ String generateResponse(String userInput) {
       'Dumelang! a o tsogile sentle gompieno?',
       'Hey there!',
       'Wassup?',
-      'Tswa go nna',
+      'Tswa mo go nna',
       'How may I serve you today?',
       'O bata eng?',
       'What do you want?'
@@ -61,9 +61,10 @@ String generateResponse(String userInput) {
       'A re ye go plan one nyana',
       'Ga se gore re ye go bata one nyana?',
       'Take a walk',
+      'Would you like to take a tour of me?, I am more than just a bot to talk to, I can also try to satisfy you😉',
       'Play some music',
-      'Go talk to a hun, or should I connect you with one?',
-      'Go talk to a gent, or should I connect you with one?',
+      'Go talk to a hun (girl/ woman), or should I connect you with one?',
+      'Go talk to a gent (boy/ man), or should I connect you with one?',
       'Robala ee',
       'As an AI, I really have no idea how I can help you right now.😴 unless my master doesn\'t want me to help you',
       'What do you want me to say?, ga kena madi!',
@@ -143,6 +144,7 @@ String generateResponse(String userInput) {
       'Aaah go maswe waitse',
       'A gona waitse',
       'Go slow today',
+      'Kgwedi e paraletse',
       'Ga di ntshe today',
       'Batho ga bao',
       'O inketele pele santse ke robetse😴'
@@ -188,6 +190,8 @@ String generateResponse(String userInput) {
       userInput.contains('Hey') ||
       userInput.contains('Dumela') ||
       userInput.contains('hi') ||
+      userInput.contains('Trouble') ||
+      userInput.contains('trouble') ||
       userInput.contains('Bonjour') ||
       userInput.contains('bonjour') ||
       userInput.contains('morning') ||
@@ -248,6 +252,8 @@ String generateResponse(String userInput) {
       userInput.contains('tired') ||
       userInput.contains('lapile') ||
       userInput.contains('one nyana') ||
+      userInput.contains('Help') ||
+      userInput.contains('help') ||
       userInput.contains('ok') ||
       userInput.contains('Ok') ||
       userInput.contains('one-nyana') ||
@@ -271,6 +277,7 @@ String generateResponse(String userInput) {
       userInput.contains('bored') ||
       userInput.contains('borega') ||
       userInput.contains('bora') ||
+      userInput.contains('rude') ||
       userInput.contains('Bora') ||
       userInput.contains('bora') ||
       userInput.contains('I don\'t know') ||
@@ -282,6 +289,10 @@ String generateResponse(String userInput) {
       userInput.contains('Fuck you') ||
       userInput.contains('fuck you') ||
       userInput.contains('Bored') ||
+      userInput.contains('loan') ||
+      userInput.contains('Loan') ||
+      userInput.contains('Nkadime') ||
+      userInput.contains('nkadime') ||
       userInput.contains('Ke bata') ||
       userInput.contains('ke bata') ||
       userInput.contains('Bonya') ||
@@ -336,12 +347,10 @@ String generateResponse(String userInput) {
     responseTopic = 'mojolo';
 
     // About the app
-  } else if (userInput.contains('website') ||
-      userInput.contains('about yourself') ||
-      userInput.contains('this app') ||
-      userInput.contains('about you') ||
-      userInput.contains('you') ||
+  } else if (userInput.contains('you') ||
       userInput.contains('Who are you') ||
+      userInput.contains('Forex') ||
+      userInput.contains('forex') ||
       userInput.contains('Betway') ||
       userInput.contains('Who made you') ||
       userInput.contains('who made you') ||
@@ -361,6 +370,10 @@ String generateResponse(String userInput) {
       userInput.contains('time') ||
       userInput.contains('nako') ||
       userInput.contains('date') ||
+      userInput.contains('website') ||
+      userInput.contains('about yourself') ||
+      userInput.contains('this app') ||
+      userInput.contains('about you') ||
       userInput.contains('go dira eng') ||
       userInput.contains('Dira sengwe') ||
       userInput.contains('dira sengwe') ||
