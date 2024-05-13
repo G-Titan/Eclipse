@@ -194,6 +194,8 @@ String generateResponse(String userInput) {
       userInput.contains('I am') ||
       userInput.contains('ke a') ||
       userInput.contains('Yes') ||
+      userInput.contains('I do') ||
+      userInput.contains('i do') ||
       userInput.contains('i am')) {
     responseTopic = 'consolidation';
 
@@ -373,10 +375,12 @@ String generateResponse(String userInput) {
       userInput.contains('what\'s happening') ||
       userInput.contains('Style se') ||
       userInput.contains('style') ||
+      userInput.contains('Waren') ||
       userInput.contains('Style') ||
       userInput.contains('plan ke') ||
       userInput.contains('plan kae') ||
       userInput.contains('plans at') ||
+      userInput.contains('e kae') ||
       userInput.contains('di kae') ||
       userInput.contains('botsa wena') ||
       userInput.contains('asking you') ||
