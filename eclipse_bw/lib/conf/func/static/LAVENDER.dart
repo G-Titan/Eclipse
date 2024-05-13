@@ -92,7 +92,7 @@ class _HeartState extends State<LAVENDER> {
                     ),
                   ),
                   if (response.contains(
-                      'one nyana')) // Example condition for displaying buttons
+                      'one nyana')) // Condition for displaying buttons for one response
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -108,6 +108,19 @@ class _HeartState extends State<LAVENDER> {
                             // Add logic for 'No' button
                           },
                           child: const Text('No'),
+                        ),
+                      ],
+                    ),
+                  if (response.contains(
+                      'you with one')) // Condition for displaying buttons for another response
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
+                            // Add logic for button
+                          },
+                          child: const Text('18+ room'),
                         ),
                       ],
                     ),

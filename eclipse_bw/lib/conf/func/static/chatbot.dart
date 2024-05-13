@@ -38,7 +38,7 @@ String generateResponse(String userInput) {
     ],
     'TheBag': [
       'Looks like I need a bit more information about you',
-      'Could you please check your account settings and verify everything is up to date?',
+      'Could you please check your account settings and verify everything is up to date.',
       'Come again, but use different words...',
       'Sengwe se a shorta golo fa, cheka account ya gago ko "settings" o bone gore a sengwe le sengwe se mo tshwanelong',
       'This request might need my master',
