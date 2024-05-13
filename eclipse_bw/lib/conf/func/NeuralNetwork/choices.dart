@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:eclipse/about.dart';
 
 class ChoiceButtons extends StatelessWidget {
   final String response;
@@ -38,13 +39,20 @@ class ChoiceButtons extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   // Add logic for button
+                  // Navigator.push(
+                  // context,
+                  //  MaterialPageRoute(builder: (context) => DigitalWalletConsole()),
+                  // );
                 },
                 child: const Text('Help Improve'),
               ),
               const SizedBox(width: 16),
               ElevatedButton(
                 onPressed: () {
-                  // Add logic for another button
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const AboutPage()),
+                  );
                 },
                 child: const Text('Terms & conditions'),
               ),
