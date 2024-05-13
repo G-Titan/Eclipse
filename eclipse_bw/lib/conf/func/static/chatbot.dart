@@ -58,9 +58,8 @@ String generateResponse(String userInput) {
       'It\'s fine💕'
     ],
     'plans': [
-      'A re ye go plan one-nyana',
-      'Ga se gore re ye go bata sengwe-nyana?',
-      'Ga se gore re ye go bata one-nyana?',
+      'A re ye go plan one nyana',
+      'Ga se gore re ye go bata one nyana?',
       'Take a walk',
       'Play some music',
       'Go talk to a hun, or should I connect you with one?',
@@ -225,6 +224,8 @@ String generateResponse(String userInput) {
     // Turn-Up
   } else if (userInput.contains('iketilwe') ||
       userInput.contains('iketlilwe') ||
+      userInput.contains('iketlile') ||
+      userInput.contains('iketile') ||
       userInput.contains('siama') ||
       userInput.contains('Ao') ||
       userInput.contains('sepe') ||
@@ -235,6 +236,7 @@ String generateResponse(String userInput) {
       userInput.contains('ok') ||
       userInput.contains('Ok') ||
       userInput.contains('one-nyana') ||
+      userInput.contains('tsha sign') ||
       userInput.contains('Tired') ||
       userInput.contains('chillin') ||
       userInput.contains('Chillin') ||

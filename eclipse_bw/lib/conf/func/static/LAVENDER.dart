@@ -1,11 +1,9 @@
-// ignore_for_file: file_names
-
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:eclipse/conf/func/static/chatbot.dart';
 
 class LAVENDER extends StatefulWidget {
-  const LAVENDER({super.key});
+  const LAVENDER({Key? key}) : super(key: key);
 
   @override
   State<LAVENDER> createState() => _HeartState();
@@ -39,7 +37,7 @@ class _HeartState extends State<LAVENDER> {
         if (userInput.isNotEmpty) {
           // Generate a response based on keywords/topics.
           String response = generateResponse(userInput);
-          // Add if statement to display yes or no buttons for cetain responces (default: hidden)
+
           // Display the response to the user via text.
           setState(() {
             this.response = response;
@@ -84,12 +82,36 @@ class _HeartState extends State<LAVENDER> {
             ),
             const SizedBox(height: 16),
             if (response.isNotEmpty)
-              Text(
-                response,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                ),
+              Column(
+                children: [
+                  Text(
+                    response,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                  ),
+                  if (response.contains(
+                      'one nyana')) // Example condition for displaying buttons
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
+                            // Add logic for 'Yes' button
+                          },
+                          child: const Text('Yes'),
+                        ),
+                        const SizedBox(width: 16),
+                        ElevatedButton(
+                          onPressed: () {
+                            // Add logic for 'No' button
+                          },
+                          child: const Text('No'),
+                        ),
+                      ],
+                    ),
+                ],
               ),
           ],
         ),
