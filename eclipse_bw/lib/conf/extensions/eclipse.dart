@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:eclipse/conf/Features/AiLogic/TTS.dart';
+import 'package:eclipse/conf/func/static/LAVENDER.dart';
 
 class EclipseAi extends StatelessWidget {
   const EclipseAi({super.key});
@@ -16,7 +16,7 @@ class EclipseAi extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    'I am Lavender, an artifical intelligent assistant',
+                    'I am Lavender, built to listen to your needs & wants',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 24,
@@ -38,7 +38,7 @@ class EclipseAi extends StatelessWidget {
               onTap: () {
                 showModalBottomSheet(
                   context: context,
-                  builder: (context) => const Heart(),
+                  builder: (context) => const LAVENDER(),
                 );
               },
               child: TweenAnimationBuilder(

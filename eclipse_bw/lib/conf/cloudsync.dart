@@ -3,8 +3,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:eclipse/conf/InfinityStones/power.dart';
-import 'package:eclipse/conf/InfinityStones/mind.dart';
+import 'package:eclipse/conf/home/mind.dart';
+import 'package:eclipse/conf/home/power.dart';
 import 'package:eclipse/main.dart';
 
 class CloudSync {

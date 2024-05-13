@@ -1,15 +1,17 @@
+// ignore_for_file: file_names
+
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:eclipse/conf/Features/AiLogic/chatbot.dart';
+import 'package:eclipse/conf/func/static/chatbot.dart';
 
-class Heart extends StatefulWidget {
-  const Heart({Key? key}) : super(key: key);
+class LAVENDER extends StatefulWidget {
+  const LAVENDER({super.key});
 
   @override
-  State<Heart> createState() => _HeartState();
+  State<LAVENDER> createState() => _HeartState();
 }
 
-class _HeartState extends State<Heart> {
+class _HeartState extends State<LAVENDER> {
   final TextEditingController _textEditingController = TextEditingController();
   Timer? _timer;
   String response = '';
@@ -37,7 +39,7 @@ class _HeartState extends State<Heart> {
         if (userInput.isNotEmpty) {
           // Generate a response based on keywords/topics.
           String response = generateResponse(userInput);
-
+          // Add if statement to display yes or no buttons for cetain responces (default: hidden)
           // Display the response to the user via text.
           setState(() {
             this.response = response;
@@ -76,7 +78,7 @@ class _HeartState extends State<Heart> {
                 controller: _textEditingController,
                 decoration: const InputDecoration(
                   border: InputBorder.none,
-                  hintText: 'Share with me what\'s on your mind.',
+                  hintText: 'Start typing...',
                 ),
               ),
             ),

@@ -7,13 +7,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:eclipse/conf/corenav.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:eclipse/main.dart';
-import 'package:eclipse/conf/InfinityStones/mind.dart';
-import 'package:eclipse/conf/InfinityStones/soul.dart';
-import 'package:eclipse/conf/InfinityStones/space.dart';
-import 'package:eclipse/conf/InfinityStones/time.dart';
+import 'package:eclipse/conf/home/mind.dart';
+import 'package:eclipse/conf/home/soul.dart';
+import 'package:eclipse/conf/home/space.dart';
+import 'package:eclipse/conf/home/time.dart';
 import 'package:eclipse/about.dart';
 import 'package:eclipse/conf/settings.dart';
-import 'package:eclipse/conf/Features/eclipse.dart';
+import 'package:eclipse/conf/extensions/eclipse.dart';
 //import 'package:citynest/about_page.dart';
 //import 'package:citynest/conf/disndat.dart'; // Assuming this is where login/register logic is
 
