@@ -1,17 +1,15 @@
 // library_private_types_in_public_api
 
-// ignore_for_file: unused_field
+// ignore_for_file: unused_field, library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:eclipse/conf/corenav.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:eclipse/main.dart';
 import 'package:eclipse/conf/home/mind.dart';
 import 'package:eclipse/conf/home/soul.dart';
 import 'package:eclipse/conf/home/space.dart';
 import 'package:eclipse/conf/home/time.dart';
-import 'package:eclipse/about.dart';
 import 'package:eclipse/conf/settings.dart';
 import 'package:eclipse/conf/extensions/eclipse.dart';
 //import 'package:citynest/about_page.dart';
@@ -84,21 +82,18 @@ class _PowerPageContentState extends State<PowerPageContent> {
     });
   }
 
-  /// WHAT YOU SEE AFTER LOGIN DETERMINED BY SWIPING//
   @override
   Widget build(BuildContext context) {
     if (_isSignedIn) {
-      // User is signed in
       return PageView(
         children: const [
-          EclipseAi(),
-          AboutPage(),
-          SettingsPage(),
+          EclipseAi(), // Keep EclipseAi if needed
+          SettingsPage(), // Keep SettingsPage if needed
         ],
       );
     } else {
-      // User is not signed in, show login/register logic from disndat.dart
-      return const GodlyTouch(); // Replace with actual Widget to show if not signed in
+      // Return a widget indicating the user is not signed in
+      return const Placeholder(); // Replace with your desired widget
     }
   }
 }

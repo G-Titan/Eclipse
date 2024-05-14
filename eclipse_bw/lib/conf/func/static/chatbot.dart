@@ -37,8 +37,8 @@ String generateResponse(String userInput) {
       'Well do you have anything to eat?,I\'m a bot so I am just fucking with you.'
     ],
     'TheBag': [
-      'Looks like I need a bit more information about you',
-      'Could you please check your account settings and verify everything is up to date.',
+      'Want to take a look at your account?',
+      'Sure go ahead and verify everything is up to date.',
       'Come again, but use different words...',
       'Sengwe se a shorta golo fa, cheka account ya gago ko "settings" o bone gore a sengwe le sengwe se mo tshwanelong',
       'This request might need my master',
@@ -107,7 +107,6 @@ String generateResponse(String userInput) {
       'Don\'t think I remember him/ her',
       'Dira call back',
       'Your friends went home, maybe you should do the same',
-      'Make a please call me request',
       'Are that broke to not even text them?',
       'Ask someone to help you'
     ],
@@ -312,9 +311,12 @@ String generateResponse(String userInput) {
       userInput.contains('funny')) {
     responseTopic = 'thanks';
 
-    // (OPT) Uncomment 2 lines below to add more topics
-    //} else if (userInput.contains('') || userInput.contains('optional')){
-    //responseTopic = '';
+    // Account management
+  } else if (userInput.contains('Account') ||
+      userInput.contains('account') ||
+      userInput.contains('Account setting') ||
+      userInput.contains('account setting')) {
+    responseTopic = 'TheBag';
 
     // Play nice
   } else if (userInput.contains('masepa') ||

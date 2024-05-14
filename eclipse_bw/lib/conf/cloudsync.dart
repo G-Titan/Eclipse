@@ -120,7 +120,7 @@ class CloudSync {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('User registration successful'),
-          duration: Duration(seconds: 7),
+          duration: Duration(seconds: 5),
         ),
       );
 
@@ -134,7 +134,7 @@ class CloudSync {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('An error occurred while registering user details'),
-          duration: Duration(seconds: 5),
+          duration: Duration(seconds: 3),
         ),
       );
     }

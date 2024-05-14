@@ -93,7 +93,9 @@ class _HeartState extends State<LAVENDER> {
                     ),
                   ),
                   ChoiceButtons(
-                      response: response), // Display buttons based on response
+                    response: response,
+                    userId: 'userId',
+                  ), // Display buttons based on response
                 ],
               ),
           ],

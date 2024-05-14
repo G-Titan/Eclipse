@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:eclipse/about.dart';
+import 'package:eclipse/conf/extensions/beta-features/accountManagement.dart';
 
 class ChoiceButtons extends StatelessWidget {
   final String response;
+  final String userId;
 
-  const ChoiceButtons({super.key, required this.response});
-
+  const ChoiceButtons(
+      {super.key, Key, required this.response, required this.userId});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -96,6 +98,33 @@ class ChoiceButtons extends StatelessWidget {
                   // Add logic for another button
                 },
                 child: const Text('No'),
+              ),
+            ],
+          ),
+        if (response.contains('and verify everything is up to date') ||
+            response.contains('your account') ||
+            response.contains(
+                'account ya gago')) // Condition for displaying buttons for another response
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => UserManagement(userId: userId),
+                    ),
+                  );
+                },
+                child: const Text('Proceed'),
+              ),
+              const SizedBox(width: 16),
+              ElevatedButton(
+                onPressed: () {
+                  // Add logic for another button
+                },
+                child: const Text('Quit request'),
               ),
             ],
           ),
