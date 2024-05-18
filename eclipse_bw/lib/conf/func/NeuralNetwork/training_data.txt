@@ -8,6 +8,7 @@ Set an alarm for 7 AM tomorrow.,Update
 Do you have any recommendations for a good book to read?,Obtainable
 Can you check if there are any discounts on electronics?,Operable
 Remind me to call mom this evening.,Update
+I feel sad.,Operable
 How far is the nearest gas station?,Obtainable
 I need assistance with setting up my email.,Operable
 Remind me to pay the utility bill by the end of the week.,Update
