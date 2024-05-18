@@ -1,6 +1,7 @@
 Can you tell me the weather tomorrow?,Obtainable
 Is it possible to get tickets for the concert?,Operable
 Remind me to pick up milk later.,Update
+Help.,Operable
 What time does the movie start?,Obtainable
 Could you help me find a restaurant nearby?,Operable
 Set an alarm for 7 AM tomorrow.,Update
