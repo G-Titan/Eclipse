@@ -1,0 +1,57 @@
+Can you tell me the weather tomorrow?,Obtainable
+Is it possible to get tickets for the concert?,Operable
+Remind me to pick up milk later.,Update
+What time does the movie start?,Obtainable
+Could you help me find a restaurant nearby?,Operable
+Set an alarm for 7 AM tomorrow.,Update
+Do you have any recommendations for a good book to read?,Obtainable
+Can you check if there are any discounts on electronics?,Operable
+Remind me to call mom this evening.,Update
+How far is the nearest gas station?,Obtainable
+I need assistance with setting up my email.,Operable
+Remind me to pay the utility bill by the end of the week.,Update
+What are the opening hours of the museum?,Obtainable
+Is there a gym nearby where I can work out?,Operable
+Set a reminder to water the plants every two days.,Update
+Could you please provide directions to the nearest pharmacy?,Obtainable
+Can you help me find a recipe for chicken curry?,Operable
+Remind me to submit the report before the deadline.,Update
+What's the traffic like on the route to work?,Obtainable
+I'm looking for a new laptop. Can you suggest some options?,Operable
+Set a reminder to take out the trash tonight.,Update
+Do you have any suggestions for a weekend getaway?,Obtainable
+Is it possible to upgrade my phone plan?,Operable
+Remind me to attend the meeting at 2 PM.,Update
+Can you provide me with information about the local events this weekend?,Obtainable
+I need help troubleshooting my internet connection.,Operable
+Remind me to schedule a dentist appointment.,Update
+Please tell me the current time.,Obtainable
+Could you find a playlist for studying?,Operable
+Remind me to feed the pets in the evening.,Update
+What's the nearest train station to my location?,Obtainable
+Can you assist me in booking a flight ticket?,Operable
+Remind me to send birthday wishes to John.,Update
+Is there a grocery store open nearby?,Obtainable
+Could you help me with formatting my resume?,Operable
+Remind me to check for updates on my computer.,Update
+Can you tell me the exchange rate for euros to dollars?,Obtainable
+I'm looking for a new workout routine. Any suggestions?,Operable
+Set a reminder to submit the project proposal by tomorrow.,Update
+Please provide information about tourist attractions in the city.,Obtainable
+Could you find a tutorial for learning Spanish?,Operable
+Remind me to buy flowers for Sarah's birthday.,Update
+What's the latest news headlines?,Obtainable
+Can you assist me in finding a rental car?,Operable
+Remind me to water the garden in the morning.,Update
+Could you recommend a movie to watch tonight?,Obtainable
+Can you check if there's a sale on clothing?,Operable
+Remind me to renew my car insurance.,Update
+Please tell me the current temperature.,Obtainable
+I'm looking for a new smartphone. Any suggestions?,Operable
+Set a reminder to wish Alice a happy birthday.,Update
+Can you provide directions to the nearest ATM?,Obtainable
+Could you find information about upcoming concerts?,Operable
+Remind me to send out invitations for the party.,Update
+What's the distance between two locations?,Obtainable
+Can you help me troubleshoot my computer issue?,Operable
+Remind me to review the presentation before the meeting.,Update

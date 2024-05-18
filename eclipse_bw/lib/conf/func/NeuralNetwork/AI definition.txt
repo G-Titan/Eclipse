@@ -1,0 +1,89 @@
+Introduction:
+
+This document details the initial design for a conversational AI prototype built using Flutter. 
+The primary goal is to create a user-friendly and engaging experience through intelligent context recognition within conversations.
+
+Understanding User Interaction (conversations):
+
+Greeting System:
+The AI will greet users based on the environment and time of day.
+Formal greetings (Hello, Good Morning, etc.) will be used in professional settings.
+Informal greetings (Hey, Wassup, etc.) will be used in casual settings.
+Greetings can be personalized by incorporating the user's name (e.g., "Hello [Name]").
+Context Identification:
+The AI will analyze the conversation flow to understand the user's intent and the subject matter being discussed.
+Key phrases and sentence structure will be used to identify:
+Requests: Look for keywords like "can you," "tell me," or sentences ending with question marks.
+Updates: Identify statements conveying new information or changes in the conversation's subject.
+Protagonists: The AI will recognize words used to identify participants in the conversation, including:
+First Person (Me, Myself, I, nicknames)
+Second Person (You, nicknames)
+Third Person (They, them, nicknames)
+Processing User Requests:
+
+Request Recognition:
+The AI will employ a combination of techniques to identify user requests:
+Analyzing sentence structure: Look for sentences ending with question marks or keywords indicating a request.
+Identifying specific verbs: Words like "get," "find," "show," or "help" often indicate a request.
+Contextual understanding: Consider the preceding conversation flow to understand the user's intent.
+Responding to Requests:
+Based on the identified context (obtainable, operable, dealt with), the AI will provide tailored responses:
+Obtainable Requests: If the user seeks information, the AI will search for relevant data and present it in a clear and concise way.
+Operable Requests: When the user inquires about the possibility of achieving something, the AI will assess the situation and offer viable options or solutions.
+Dealt with Requests: If the user desires assistance with a specific task, the AI will guide them through the process or offer to complete it (depending on its capabilities).
+
+
+Example Conversation:
+
+User: Hey there!
+
+AI: Hey [User Name]! How can I help you today?
+
+User: I'm looking for information about the weather tomorrow. (Obtainable Request)
+
+AI: Sure, let me look that up for you. The forecast for tomorrow predicts sunny skies with a high of 25 degrees Celsius.
+
+User: Great! Thanks.  Also, is there a chance I can get tickets to the upcoming concert? (Operable Request)
+
+AI: Absolutely!  Let me search for available tickets and see what options are out there.
+
+User: Perfect! While you're doing that, can you remind me to pick up milk at the grocery store later? (Update)
+
+AI: No problem, I've added a reminder to pick up milk at the grocery store.  In the meantime, I found several ticket options for the concert. Would you like to see them?
+
+=========================
+Obtainable:
+=========================
+Focus: Information gathering and retrieval.
+Action: The AI searches for and retrieves relevant information based on the user's request.
+Data Sources:
+External sources (weather data, ticket availability).
+User's in-app data (wallet balance, inventory).
+Example: User asks for weather information or ticket availability. The AI retrieves data from weather services or ticket vendors and presents it to the user.
+In Your Example:
+Finding tickets considers:
+User location
+Ticket prices in the vicinity (using an external source)
+User's in-app wallet balance (using in-app data)
+
+=========================
+Operable:
+=========================
+Focus: Assessing the feasibility of achieving a goal.
+Action: The AI analyzes the user's request and evaluates the likelihood of success based on available information.
+Data Sources:
+User-provided information (skills, background, strengths, weaknesses).
+General knowledge about the task (e.g., difficulty of getting a cinema ticket).
+Example: User asks if they can get a cinema ticket. The AI considers their location, current time (availability), and any factors mentioned in conversation.
+In Your Example: The AI analyzes the user's conversational history to understand their strengths and weaknesses, then evaluates their chances of getting a ticket based on those factors (assuming no integration with cinema ticketing systems).
+
+=========================
+Dealt With:
+=========================
+Focus: Assisting the user with actions or tasks.
+Action: The AI provides instructions, completes tasks (if possible), or offers relevant resources to help the user.
+Data Sources:
+Pre-programmed knowledge about tasks (e.g., blocking users/ making transactions).
+Context of the conversation (understanding the "odd situation").
+Example: User asks how to block a toxic user. The AI walks them through the steps in the app or directly handles the blocking process (depending on its capabilities).
+In Your Example: The AI guides the user through the process of blocking a toxic user within the app (assuming it has access to user management functionalities).

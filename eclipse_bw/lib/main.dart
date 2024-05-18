@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:eclipse/conf/cloudsync.dart';
 import 'package:eclipse/firebase_options.dart';
+import 'package:flutter/services.dart';
 
 void main() async {
   await Firebase.initializeApp(
@@ -17,6 +18,9 @@ void main() async {
     try {
       FirebaseAuth.instance.useAuthEmulator('localhost', 4435);
       FirebaseFirestore.instance.useFirestoreEmulator('localhost', 4446);
+
+      WidgetsFlutterBinding.ensureInitialized();
+      SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     } catch (e) {
       // ignore: avoid_print
       print(e);
