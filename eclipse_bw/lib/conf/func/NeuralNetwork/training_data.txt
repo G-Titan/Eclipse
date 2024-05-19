@@ -1,14 +1,21 @@
 Can you tell me the weather tomorrow?,Obtainable
 Is it possible to get tickets for the concert?,Operable
 Remind me to pick up milk later.,Update
-Help.,Operable
 What time does the movie start?,Obtainable
 Could you help me find a restaurant nearby?,Operable
 Set an alarm for 7 AM tomorrow.,Update
 Do you have any recommendations for a good book to read?,Obtainable
 Can you check if there are any discounts on electronics?,Operable
 Remind me to call mom this evening.,Update
-I feel sad.,Obtainable
+I feel sad.,Update
+This may hurt.,Update
+Keitumetse.,Update
+Ke bata madi.,Update
+Ke ka bona madi kae?,Obtainable
+I want money.,Update
+How do I make money?,Obtainable
+Ke dira madi jang?,Obtainable
+Batho ba kae?,Obtainable
 How far is the nearest gas station?,Obtainable
 I need assistance with setting up my email.,Operable
 Remind me to pay the utility bill by the end of the week.,Update
@@ -57,3 +64,46 @@ Remind me to send out invitations for the party.,Update
 What's the distance between two locations?,Obtainable
 Can you help me troubleshoot my computer issue?,Operable
 Remind me to review the presentation before the meeting.,Update
+Kgweetsa motho.,Obtainable
+Go reka dijo.,Obtainable
+Ithuta Setswana.,Operable
+Bala pampiri.,Operable
+Tsamaya ka terena.,Operable
+Bula lebati.,Operable
+Dirisa koloi.,Operable
+Fitisa kompone.,Update
+Fetola nomoro ya selefounu.,Update
+Nchafatsa ditirelo tsa banka.,Update
+Fitisha akhaonto ya email.,Update
+Nchafatsa setlhopha.,Update
+Go dira.,Operable
+Go bua.,Update
+Go tsaya.,Obtainable
+Bala dikgang tsa letsatsi.,Obtainable
+Ithuta Setswana ka Lavender.,Obtainable
+Botsa mongwe lefelo la go nna.,Obtainable
+Go reka diaparo.,Obtainable
+Tsamaya ka sefofane.,Operable
+Tshuba koloi.,Operable
+Bula fensetere.,Operable
+Gatisa bana mo go mme.,Operable
+Dirisa mokgatlho o mo go tlase.,Operable
+Hitisa software ya selefounu.,Update
+Nchafatsa password ya WI-FI.,Update
+Download a movie.,Obtainable
+Learn to cook.,Obtainable
+Read a book.,Obtainable
+Order a pizza.,Obtainable
+Turn on the light.,Operable
+Open the door.,Operable
+Ride a bike.,Operable
+Play some video games.,Operable
+Send an email.,Operable
+Update software.,Update
+Change password.,Update
+Edit a document.,Update
+Refresh a webpage.,Update
+Update a calender event.,Update
+Kevin is rich.,Update
+Godly Titan is rich.,Update
+Bakang is poor.,Operable
