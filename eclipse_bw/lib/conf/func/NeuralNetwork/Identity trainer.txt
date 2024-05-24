@@ -1,0 +1,5 @@
+John lives in New York     B-PER O O B-LOC I-LOC
+I will visit London next week     O O O B-LOC O B-TIME I-TIME
+The conference starts at 9 AM     O O B-EVENT O B-TIME I-TIME
+The company bought new assets     O O O O B-ASSET I-ASSET
+He owes a lot of liabilities     O O O O B-LIABILITY
