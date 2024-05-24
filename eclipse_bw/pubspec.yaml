@@ -42,7 +42,6 @@ dependencies:
   speech_to_text: ^6.6.1
   audioplayers: ^6.0.0
   flutter_tts: ^4.0.2
-  firebase_ml_vision: ^0.12.0+3
   tflite_flutter: ^0.10.4
   tflite: ^1.1.2
 
@@ -72,7 +71,7 @@ flutter:
   assets:
     - lib/conf/assets/animations/purpleFlame.gif
     - lib/conf/assets/animations/powerStone.gif
-    - lib/conf/func/NeuralNetwork/1stNeuralLink.tflite
+    - lib/conf/assets/1stNeuralLink.tflite
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
