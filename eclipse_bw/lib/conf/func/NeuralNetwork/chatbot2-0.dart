@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:flutter/material.dart';
 import 'package:tflite_flutter/tflite_flutter.dart'; // Import TensorFlow Lite package
 
 class Chatbot2_0 {
@@ -21,14 +20,6 @@ class Chatbot2_0 {
 
   // Generate response using the loaded TensorFlow Lite model
   Future<String> generateResponse(String userInput) async {
-    if (_interpreter == null) {
-      return 'Model not loaded yet. Please wait...';
-    }
-
-    // Preprocess user input if required by the model
-
-    // Run inference with the user input
-    // Example: replace this with actual inference code
     List<dynamic> input = [
       userInput
     ]; // Example: input should be in the format expected by your model
