@@ -71,7 +71,9 @@ flutter:
   assets:
     - lib/conf/assets/animations/purpleFlame.gif
     - lib/conf/assets/animations/powerStone.gif
-    - lib/conf/assets/1stNeuralLink.tflite
+    - lib/conf/func/NeuralNetwork/compiler/model_architecture.json
+    - lib/conf/func/NeuralNetwork/compiler/model_weights.weights.h5
+    - lib/conf/func/NeuralNetwork/compiler/intentionAi.tflite
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

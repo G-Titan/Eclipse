@@ -29,8 +29,9 @@ class _MindState extends State<Mind> {
     'Phone Number',
     'Citizenship',
   ];
+
   int _currentIndex = 0;
-  final bool _isMale = false;
+  bool _isMale = true;
   DateTime? _selectedDate;
 
   @override
@@ -56,69 +57,143 @@ class _MindState extends State<Mind> {
             borderSide: const BorderSide(color: Colors.red),
             borderRadius: BorderRadius.circular(10.0),
           ),
-          fillColor: Colors.white,
-          filled: true,
-          labelStyle: const TextStyle(color: Colors.blue),
         ),
       ),
       home: Scaffold(
-        backgroundColor: Colors.transparent, // Set background color
         appBar: AppBar(
-          backgroundColor:
-              Colors.black, // Set the background color of the AppBar to black
-          title: Text(
-            'Registration Phase ${_currentIndex + 1}/7',
-            style: const TextStyle(color: Colors.white), // Set text color to white
-          ),
+          title: const Text('KYC, Terms & Conditions'),
         ),
-
-        body: Stack(
-          children: [
-            // Add your GIF animation here
-            Image.asset(
-              'lib/conf/assets/animations/powerStone.gif',
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('lib/conf/assets/animations/powerStone.gif'),
               fit: BoxFit.cover,
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
             ),
-            Padding(
+          ),
+          child: Center(
+            child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Form(
                 key: _formKey,
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      _buildTextField(
-                        controller: _controllers[_currentIndex],
-                        label: _labels[_currentIndex],
-                      ),
-                      const SizedBox(height: 40),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          if (_currentIndex > 0)
-                            ElevatedButton(
-                              onPressed: _previousField,
-                              child: const Text('Previous'),
-                            ),
-                          const SizedBox(width: 20),
-                          ElevatedButton(
-                            onPressed: _nextField,
-                            child: Text(_currentIndex == _controllers.length - 1
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    _buildPhaseIndicator(),
+                    _buildCurrentField(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        TextButton(
+                          onPressed: _previousField,
+                          child: const Text('Previous'),
+                        ),
+                        TextButton(
+                          onPressed: _nextField,
+                          child: Text(
+                            _currentIndex == _controllers.length + 1
                                 ? 'Submit'
-                                : 'Next'),
+                                : 'Next',
                           ),
-                        ],
-                      ),
-                    ],
-                  ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ),
-          ],
+          ),
         ),
       ),
+    );
+  }
+
+  Widget _buildPhaseIndicator() {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16.0),
+      child: Text(
+        'Phase ${_currentIndex + 1} of ${_controllers.length + 2}',
+        style: const TextStyle(
+          fontSize: 20.0,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCurrentField() {
+    if (_currentIndex < _controllers.length) {
+      return _buildTextField(
+        controller: _controllers[_currentIndex],
+        label: _labels[_currentIndex],
+      );
+    } else if (_currentIndex == _controllers.length) {
+      return _buildGenderToggle();
+    } else if (_currentIndex == _controllers.length + 1) {
+      return _buildDatePicker();
+    }
+    return Container();
+  }
+
+  Widget _buildGenderToggle() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text(
+          'Are you a (Man, boy) or (Woman, girl)?',
+          style: TextStyle(color: Colors.white),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Male',
+              style: TextStyle(color: Colors.white),
+            ),
+            Switch(
+              value: _isMale,
+              onChanged: (bool value) {
+                setState(() {
+                  _isMale = value;
+                });
+              },
+            ),
+            const Text(
+              'Female',
+              style: TextStyle(color: Colors.white),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _buildDatePicker() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        TextButton(
+          onPressed: () async {
+            DateTime? picked = await showDatePicker(
+              context: context,
+              initialDate: DateTime.now(),
+              firstDate: DateTime(1900),
+              lastDate: DateTime(2100),
+            );
+            if (picked != null) {
+              setState(() {
+                _selectedDate = picked;
+              });
+            }
+          },
+          child: Text(
+            _selectedDate == null
+                ? 'Select birth date'
+                : _selectedDate.toString(),
+            style: const TextStyle(color: Colors.white),
+          ),
+        ),
+      ],
     );
   }
 
@@ -132,7 +207,9 @@ class _MindState extends State<Mind> {
         controller: controller,
         decoration: InputDecoration(
           labelText: label,
+          labelStyle: const TextStyle(color: Colors.white),
         ),
+        style: const TextStyle(color: Colors.white),
         validator: (value) {
           if (value == null || value.isEmpty) {
             return 'Please enter your $label';
@@ -145,7 +222,7 @@ class _MindState extends State<Mind> {
 
   void _nextField() {
     if (_formKey.currentState!.validate()) {
-      if (_currentIndex < _controllers.length - 1) {
+      if (_currentIndex < _controllers.length + 1) {
         setState(() {
           _currentIndex++;
         });
@@ -168,14 +245,12 @@ class _MindState extends State<Mind> {
     String name = _controllers[0].text;
     String surname = _controllers[1].text;
     int age = int.parse(_controllers[2].text);
-    String idNumber = _controllers[3].text;
+    int idNumber = int.parse(_controllers[3].text);
     String homeAddress = _controllers[4].text;
-    String phoneNumber = _controllers[5].text;
+    int phoneNumber = int.parse(_controllers[5].text);
     String citizenship = _controllers[6].text;
-    String gender = _isMale ? 'Male' : 'Female';
-    String birthDate = _selectedDate != null
-        ? '${_selectedDate!.year}-${_selectedDate!.month}-${_selectedDate!.day}'
-        : '';
+    String gender = _isMale ? 'Male' : 'female';
+    String birthDate = _selectedDate?.toString() ?? '';
 
     // Call CloudSync method to register user details
     CloudSync.registerUserDetails(

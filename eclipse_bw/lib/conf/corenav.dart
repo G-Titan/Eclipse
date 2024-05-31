@@ -2,12 +2,17 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:eclipse/conf/cloudsync.dart';
+import 'package:eclipse/conf/extensions/beta-features/accountManagement.dart';
 
 class CoreNav extends StatelessWidget {
   final Function(int) navigateToPage;
   final String? userId; // Added userId parameter
+  final User? currentUser = FirebaseAuth.instance.currentUser;
 
-  CoreNav({super.key, required this.navigateToPage, this.userId}); // Updated constructor
+  CoreNav(
+      {super.key,
+      required this.navigateToPage,
+      this.userId}); // Updated constructor
 
   final bool isUserSignedIn = FirebaseAuth.instance.currentUser != null;
 
@@ -44,15 +49,18 @@ class CoreNav extends StatelessWidget {
                   },
                 ),
                 onTap: () {
-                  // Implement action for viewing/editing user profile
-                  // Example: navigateToProfile(userId);
+                  if (currentUser != null) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            usermanagement(userId: currentUser!.uid),
+                      ),
+                    );
+                  } else {
+                    // Handle the case when the user is not signed in
+                  }
                 },
-              ),
-              ListTile(
-                leading: const Icon(Icons.home, color: Colors.white),
-                title:
-                    const Text('Portal', style: TextStyle(color: Colors.white)),
-                onTap: () => navigateToPage(0),
               ),
               ListTile(
                 leading: const Icon(Icons.music_note, color: Colors.white),

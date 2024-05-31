@@ -1,52 +1,60 @@
+// ignore_for_file: camel_case_types
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart'; // Import Firestore library
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-class UserManagement extends StatelessWidget {
+class usermanagement extends StatelessWidget {
   final String userId;
-
-  const UserManagement({super.key, required this.userId});
+  usermanagement({super.key, required this.userId});
+  final bool isUserSignedIn = FirebaseAuth.instance.currentUser != null;
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<DocumentSnapshot>(
-      future: FirebaseFirestore.instance
-          .collection('users')
-          .doc(userId)
-          .get(), // Fetch user data
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const CircularProgressIndicator(); // Show loading indicator while data is being fetched
-        }
-        if (snapshot.hasError) {
-          return Text('Error: ${snapshot.error}'); // Show error if any
-        }
-        if (!snapshot.hasData || snapshot.data == null) {
-          return const Text(
-              'User not found'); // Handle case where user data is not available
-        }
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('My Account information'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: StreamBuilder<DocumentSnapshot>(
+          stream: FirebaseFirestore.instance
+              .collection('users')
+              .doc(userId)
+              .snapshots(), // Fetch user data from Firestore
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            if (snapshot.hasError) {
+              return Center(
+                child: Text('Error: ${snapshot.error}'),
+              );
+            }
+            if (!snapshot.hasData || snapshot.data!.data() == null) {
+              return const Center(
+                child: Text('No user data found'),
+              );
+            }
 
-        // Retrieve user data from snapshot
-        final userData = snapshot.data!.data() as Map<String, dynamic>?;
-
-        if (userData == null) {
-          return const Text('An error occured while fetching your account');
-        }
-
-        // Access name and surname fields from userData
-        final String? name = userData['name'] as String?;
-        final String? surname = userData['surname'] as String?;
-
-        return Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Display user's name
-            Text('Name: $name'),
-            // Display user's surname
-            Text('Surname: $surname'),
-            // Add logic or buttons as needed
-          ],
-        );
-      },
+            // Display user information from Firestore
+            final userData = snapshot.data!.data() as Map<String, dynamic>;
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Name: ${userData['name']}'),
+                Text('Surname: ${userData['surname']}'),
+                Text('Age: ${userData['age']}'),
+                Text('ID Number: ${userData['idNumber']}'),
+                Text('Home Address: ${userData['homeAddress']}'),
+                Text('Phone Number: ${userData['phoneNumber']}'),
+              ],
+            );
+          },
+        ),
+      ),
     );
   }
 }

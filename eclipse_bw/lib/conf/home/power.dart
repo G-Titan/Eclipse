@@ -6,10 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:eclipse/conf/corenav.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:eclipse/conf/home/mind.dart';
 import 'package:eclipse/conf/home/soul.dart';
-import 'package:eclipse/conf/home/space.dart';
-import 'package:eclipse/conf/home/time.dart';
 import 'package:eclipse/conf/settings.dart';
 import 'package:eclipse/conf/extensions/eclipse.dart';
 //import 'package:citynest/about_page.dart';
@@ -30,9 +27,10 @@ class _PowerState extends State<Power> {
   final List<Widget> _pages = [
     const Power(),
     const Soul(),
-    const Space(),
-    const Time(),
-    const Mind()
+    //const Space(),
+    //const Time(),
+    //const Mind(),
+    const SettingsPage(),
   ];
 
   @override
@@ -60,14 +58,15 @@ class _PowerState extends State<Power> {
 }
 
 class PowerPageContent extends StatefulWidget {
-  const PowerPageContent({super.key});
+  final String? userId;
+  const PowerPageContent({super.key, this.userId});
 
   @override
   _PowerPageContentState createState() => _PowerPageContentState();
 }
 
 class _PowerPageContentState extends State<PowerPageContent> {
-  bool _isSignedIn = false;
+  bool _isSignedIn = true;
 
   @override
   void initState() {

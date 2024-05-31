@@ -7,7 +7,8 @@ class ChoiceButtons extends StatelessWidget {
   final String userId;
 
   const ChoiceButtons(
-      {super.key, Key, required this.response, required this.userId});
+      {super.key, required this.response, required this.userId});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -60,7 +61,7 @@ class ChoiceButtons extends StatelessWidget {
               ),
             ],
           ),
-        //// OFFERINGS
+        // OFFERINGS
         if (response.contains('just a suggestion') ||
             response.contains('I thought I was'))
           Row(
@@ -81,8 +82,7 @@ class ChoiceButtons extends StatelessWidget {
               ),
             ],
           ),
-        if (response.contains(
-            'tour of me')) // Condition for displaying buttons for another response
+        if (response.contains('tour of me'))
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -103,8 +103,7 @@ class ChoiceButtons extends StatelessWidget {
           ),
         if (response.contains('and verify everything is up to date') ||
             response.contains('your account') ||
-            response.contains(
-                'account ya gago')) // Condition for displaying buttons for another response
+            response.contains('account ya gago'))
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -113,7 +112,7 @@ class ChoiceButtons extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => UserManagement(userId: userId),
+                      builder: (context) => usermanagement(userId: userId),
                     ),
                   );
                 },
@@ -128,8 +127,8 @@ class ChoiceButtons extends StatelessWidget {
               ),
             ],
           ),
-        ////// Add more button pairs as needed
-        // if (response.contains('Another condition')) // Condition for displaying buttons for another response
+        // Add more button pairs as needed
+        // if (response.contains('Another condition'))
         //   Row(
         //     mainAxisAlignment: MainAxisAlignment.center,
         //     children: [

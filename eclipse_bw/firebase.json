@@ -22,10 +22,10 @@
   },
   "emulators": {
     "auth": {
-      "port": 4425
+      "port": 4475
     },
     "firestore": {
-      "port": 4436
+      "port": 4476
     },
     "hosting": {
       "port": 5000

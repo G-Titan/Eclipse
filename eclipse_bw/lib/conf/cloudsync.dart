@@ -53,16 +53,19 @@ class CloudSync {
     if (e.code == 'weak-password') {
       return 'Use a stronger password.';
     } else if (e.code == 'email-already-in-use') {
-      return 'I know this email, try login instead.';
+      return 'I know that email, login instead.';
     } else if (e.code == 'user-not-found') {
       return 'I don\'t know that email, Register instead.';
     } else if (e.code == 'wrong-password') {
       return 'Password incorrect, try a different one.';
+    } else if (e.code == 'invalid-email') {
+      return 'Incorrect email format';
     } else {
-      return 'Check your login information or internet & try again.';
+      return 'Offline mode. please try again when online😥.';
     }
   }
 
+// REGISTER USERS mini
   static Future<void> registerUserBasic(
       BuildContext context, String email, String password) async {
     try {
@@ -71,7 +74,7 @@ class CloudSync {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
             content: Text('User registration successful'),
-            duration: Duration(seconds: 7)),
+            duration: Duration(seconds: 5)),
       );
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => const Mind()),
@@ -94,9 +97,9 @@ class CloudSync {
       String name,
       String surname,
       int age,
-      String idNumber,
+      int idNumber,
       String homeAddress,
-      String phoneNumber,
+      int phoneNumber,
       String citizenship,
       String gender,
       String birthDate) {

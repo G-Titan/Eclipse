@@ -1,9 +1,29 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:eclipse/conf/func/static/LAVENDER.dart';
+import 'package:eclipse/conf/func/NeuralNetwork/heart.dart';
 
-class EclipseAi extends StatelessWidget {
-  const EclipseAi({super.key});
+class EclipseAi extends StatefulWidget {
+  const EclipseAi({Key? key}) : super(key: key);
+
+  @override
+  _EclipseAiState createState() => _EclipseAiState();
+}
+
+class _EclipseAiState extends State<EclipseAi> {
+  late Heart _heart;
+
+  @override
+  void initState() {
+    super.initState();
+    _heart = Heart();
+    _heart.loadModel();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +55,10 @@ class EclipseAi extends StatelessWidget {
           ),
           Center(
             child: GestureDetector(
-              onTap: () {
-                showModalBottomSheet(
-                  context: context,
-                  builder: (context) => const LAVENDER(),
-                );
+              onTap: () async {
+                // Call your prediction or any other model-related methods here
+                // Example:
+                // var prediction = await _heart.predict([inputData]);
               },
               child: TweenAnimationBuilder(
                 tween: Tween<double>(begin: 0, end: 2 * pi),

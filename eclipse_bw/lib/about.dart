@@ -7,7 +7,7 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('About Us'),
+        title: const Text('About Eclipse'),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
@@ -29,7 +29,7 @@ class AboutPage extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Text(
-              'Welcome to Godly\'s Touch, your ultimate destination for empowerment and inspiration!',
+              'Welcome to Godly\'s Touch, Where every local expert is found.',
               style: TextStyle(fontSize: 16),
             ),
             SizedBox(height: 16),
@@ -42,7 +42,27 @@ class AboutPage extends StatelessWidget {
             ),
             SizedBox(height: 8),
             Text(
-              'To provide tools and resources that empower individuals to achieve their fullest potential and make a positive impact in the world.',
+              'To optimize and provide the highest grade of products and services in Botswana.',
+              style: TextStyle(fontSize: 16),
+            ),
+            SizedBox(height: 8),
+            Text(
+              'Services we provide',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 8),
+            Text(
+              'Green energy business solutions, website design/ redesign, customer service training, insurance agent, VIP escort and bouncers services, event tickets, importing goods and services from other countries, plan student tours for schools, offer promotional products, affiliate businesses and Internet marketing, customized stationary and cards for businesses.',
+              style: TextStyle(fontSize: 16),
+            ),
+            SizedBox(height: 8),
+            Text(
+              'Contact information.',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 8),
+            Text(
+              'The best and possible way to contact us is through the integrated chatbot we have made. It can provide you with our names, numbers and locations (if necesarry)',
               style: TextStyle(fontSize: 16),
             ),
           ],
