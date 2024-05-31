@@ -6,6 +6,7 @@
 - Named Entity Recognition AI developement (no intergration)✔️
 - Models compatibility check {needs to be converted to tflite}✔️
 - Intergrating a complex dynamic responce system for Lanvender using NLP (tensorflow)✔️
+ {Personal notes: The registration is ok, check eclipse.dart if you cant register}
 - Natural Language Processing intelligence responce system for Lavender (NLPi powered)▶️
 - wallet resign (removing placeholder)🕒
 - Platform support: {
