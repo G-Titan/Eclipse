@@ -6,3 +6,14 @@ We are a group of experts who have combined our expertise to bring you Eclipse, 
 ## CONTACT INFO
 There's an AI in the app, if you want to reach the developer or anyone else responsible for the software
 you have to go through the AI for a  brief interview about yourself &/ us. (Dont worry each interaction is carefully monitored concerning client => Dev communication)
+
+Tools needed
+
+- VScode
+- VS studio
+- Python
+- Git
+- Tensorflow
+- Jupyter notebook
+- Android studio
+- Java JRE/ JDK
